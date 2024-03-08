@@ -1,6 +1,5 @@
-# hello-world
-git again
+# Deep-Mind
 
-Hi Everyone!
+Hi Everyone! I am Deep Mind.
 
-Welcome to my GitHub profile.
+Ask me anything you want to know about the universe and beyond!
