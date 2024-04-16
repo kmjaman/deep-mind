@@ -12,6 +12,9 @@ from utils.tokenizer import Tokenizer
 from data.text_dataset import TextDataset
 from training.train import train_model
 
+from evaluation.evaluate import evaluate_model
+from utils.model_utils import save_model, load_model
+
 # Prepare data
 texts = [
     "hello world this is a test",
@@ -37,3 +40,14 @@ optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 # Training
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 train_model(model, dataloader, optimizer, loss_fn, device, epochs=5)
+
+
+# Evaluation of model after training
+evaluate_model(model, dataloader, loss_fn, device)
+
+# Save the trained model
+save_model(model, "transformer_model.pth")
+
+# Load the model to verify
+loaded_model = BaseTransformer(config)
+loaded_model = load_model(loaded_model, "transformer_model.pth", device)
